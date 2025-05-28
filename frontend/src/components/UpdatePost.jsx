@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BASE_URL } from '../config';  
 
 const UpdatePost = ({ postId, postData, onPostUpdated }) => {
   const [title, setTitle] = useState(postData.title || '');
@@ -15,7 +16,7 @@ const UpdatePost = ({ postId, postData, onPostUpdated }) => {
     setError(null);
 
     try {
-      const response = await fetch(`http://localhost:1337/api/posts/${postId}`, {
+      const response = await fetch(`${BASE_URL}/${postId}`, {  
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

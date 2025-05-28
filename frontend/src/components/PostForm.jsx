@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircleIcon, ExclamationCircleIcon } from '@heroicons/react/24/solid';
+import { BASE_URL } from '../config';
 
 const PostForm = () => {
   const [title, setTitle] = useState('');
@@ -13,7 +14,7 @@ const PostForm = () => {
     setSuccess(null);
 
     try {
-      const response = await fetch('http://localhost:1337/api/posts', {
+    const response = await fetch(`${BASE_URL}/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

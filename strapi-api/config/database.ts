@@ -11,3 +11,13 @@ module.exports = ({ env }) => ({
     },
   },
 });
+
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: 'postgres',
+//     connection: env('DATABASE_URL'),
+//     ssl: {
+//       rejectUnauthorized: false, // Required for most cloud providers including Supabase
+//     },
+//   },
+// });

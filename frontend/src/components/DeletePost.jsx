@@ -1,10 +1,11 @@
 import React from 'react';
 import { TrashIcon } from '@heroicons/react/24/outline';
+import { BASE_URL } from '../config'; 
 
 const DeletePost = ({ postId, onPostDeleted, iconOnly = false }) => {
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:1337/api/posts/${postId}`, {
+      const response = await fetch(`${BASE_URL}/${postId}`, { 
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

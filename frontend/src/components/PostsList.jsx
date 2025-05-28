@@ -3,9 +3,9 @@ import DeletePost from './DeletePost';
 import UpdatePost from './UpdatePost';
 import {
   PencilSquareIcon,
-  TrashIcon,
   ExclamationCircleIcon,
 } from '@heroicons/react/24/outline';
+import { BASE_URL } from '../config'; 
 
 const PostsList = () => {
   const [posts, setPosts] = useState([]);
@@ -16,8 +16,9 @@ const PostsList = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch('http://localhost:1337/api/posts');
-        if (!response.ok) throw new Error(`Failed to fetch, status: ${response.status}`);
+        const response = await fetch(`${BASE_URL}/`);
+        if (!response.ok)
+          throw new Error(`Failed to fetch, status: ${response.status}`);
         const data = await response.json();
         setPosts(data.data || []);
       } catch (err) {
